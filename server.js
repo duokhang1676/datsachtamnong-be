@@ -31,6 +31,13 @@ app.use(cors({
       return callback(null, true);
     }
     
+    // Allow custom domain datsachtamnong.com (including www subdomain)
+    if (origin === 'https://datsachtamnong.com' || 
+        origin === 'https://www.datsachtamnong.com' ||
+        origin.endsWith('.datsachtamnong.com')) {
+      return callback(null, true);
+    }
+    
     // Allow production frontend URL from env
     if (process.env.FRONTEND_URL && origin === process.env.FRONTEND_URL) {
       return callback(null, true);
