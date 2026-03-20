@@ -61,6 +61,7 @@ app.use('/api/banners', require('./routes/banners'));
 app.use('/api/upload', require('./routes/upload'));
 app.use('/api/settings', require('./routes/settings'));
 app.use('/api/news', require('./routes/news'));
+app.use('/api/approval', require('./routes/approval'));
 
 // Health check route
 app.get('/api/health', (req, res) => {
