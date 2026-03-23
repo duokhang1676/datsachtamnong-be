@@ -132,7 +132,8 @@ exports.getNewsById = async (req, res) => {
 exports.getNewsBySlug = async (req, res) => {
   try {
     const news = await News.findOne({ slug: req.params.slug })
-      .populate('author', 'name email');
+      .populate('author', 'name email')
+      .populate('category', 'name slug');
 
     if (!news) {
       return res.status(404).json({
